@@ -1,0 +1,17 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+  <system>
+    <section id="parc_urlkeys" translate="label" type="text" sortOrder="1400" showInDefault="1" showInWebsite="1" showInStore="1">
+      <label>Update Url Keys</label>
+      <tab>parc</tab>
+      <resource>Magento_Backend::admin</resource>
+      <group id="storeviews" translate="label" type="text" sortOrder="10" showInDefault="1" canRestore="1">
+        <label>Select Storeviews</label>
+        <field id="selection" translate="label" sortOrder="5" showInDefault="1">
+          <label>Storeviews</label>
+          <frontend_model>Parc\CorrectUrlKeys\Block\Adminhtml\Form\Field\Imports</frontend_model>
+          <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+        </field>
+      </group>
+    </section>
+  </system>
+</config>

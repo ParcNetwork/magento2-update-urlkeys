@@ -1,0 +1,26 @@
+{
+    "name": "parc/module-correcturlkeys",
+    "description": "Searches for products in different stores and corrects the url key if needed",
+    "version": "1.0.0",
+    "type": "magento2-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Louis Templeton",
+            "email": "ltempleton@parc-network.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "magento/framework": "^2.3",
+        "integer-net/magento2-german-umlaut-urls": "^2.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Parc\\CorrectUrlKeys\\": ""
+        }
+    }
+}
