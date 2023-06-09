@@ -87,7 +87,7 @@ class UpdateUrlKeys
 
         $cronSchedule = $settings['cronScheduleSetting'];
 
-        $cronSchedule = $this->prepareCronSchedule($cronSchedule);
+        //$cronSchedule = $this->prepareCronSchedule($cronSchedule);
 
         foreach ($storeViewSettings as $setting) {
 

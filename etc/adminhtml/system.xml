@@ -20,8 +20,7 @@
         <label>Configure Cronjob Intervall</label>
         <field id="configure" translate="label" sortOrder="5" showInDefault="1">
           <label>Cronjob</label>
-          <frontend_model>Parc\CorrectUrlKeys\Block\Adminhtml\Form\Field\Imports</frontend_model>
-          <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+          <comment><![CDATA[Enter the cron expression in the format * * * * *]]></comment>
         </field>
       </group>
     </section>

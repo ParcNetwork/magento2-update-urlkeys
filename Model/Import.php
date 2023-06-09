@@ -40,7 +40,7 @@ class Import
             }
         }
 
-        $cronSchedule = $scopeConfig->getValue(
+        $this->cronSchedule = $scopeConfig->getValue(
             'parc_urlkeys/cronjob/configure'
         );
     }
