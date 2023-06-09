@@ -50,5 +50,4 @@ Searches for products in different stores and corrects the url key if needed
 
 
 
-=======
 # magento2-update-urlkeys
