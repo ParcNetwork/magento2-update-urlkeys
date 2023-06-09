@@ -13,7 +13,8 @@
 Searches for products in different stores and corrects the url key if needed
 
 ## Installation
-\* = in production please use the `--keep-generated` option
+1. Install via composer
+   ```composer require yolomir/magento2-update-url-keys```
 
 ### Type 1: Zip file
 

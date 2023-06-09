@@ -13,6 +13,15 @@
           <label>Storeviews</label>
           <frontend_model>Parc\CorrectUrlKeys\Block\Adminhtml\Form\Field\Imports</frontend_model>
           <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+          <hint>If no</hint>
+        </field>
+      </group>
+      <group id="cronjob" translate="label" type="text" sortOrder="10" showInDefault="1" canRestore="1">
+        <label>Configure Cronjob Intervall</label>
+        <field id="configure" translate="label" sortOrder="5" showInDefault="1">
+          <label>Cronjob</label>
+          <frontend_model>Parc\CorrectUrlKeys\Block\Adminhtml\Form\Field\Imports</frontend_model>
+          <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
         </field>
       </group>
     </section>

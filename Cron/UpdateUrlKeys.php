@@ -70,6 +70,12 @@ class UpdateUrlKeys
         return $productCollection->addStoreFilter($storeId)->getAllIds();
     }
 
+    public function prepareCronSchedule($cronScheduleSetting) {
+        list($minutes, $hours) = explode(' ', $cronScheduleSetting);
+        //$cronString = $minutes . ' ' . $hours . ' * * *';
+        return $minutes . ' ' . $hours . ' * * *';
+    }
+
     /**
      * @return void
      */
@@ -77,7 +83,13 @@ class UpdateUrlKeys
     {
         $settings = $this->import->run();
 
-        foreach ($settings as $setting) {
+        $storeViewSettings = $settings['storeViewsSettings'];
+
+        $cronSchedule = $settings['cronScheduleSetting'];
+
+        $cronSchedule = $this->prepareCronSchedule($cronSchedule);
+
+        foreach ($storeViewSettings as $setting) {
 
             $this->_storeManager->setCurrentStore($setting['storeview']);
 

@@ -13,6 +13,8 @@ class Import
 
     protected array $storeViews;
 
+    protected $cronSchedule;
+
     /**
      * @param ScopeConfigInterface $scopeConfig
      */
@@ -21,22 +23,26 @@ class Import
     ) {
         $this->scopeConfig = $scopeConfig;
 
-        $imports = $scopeConfig->getValue(
+        $storeViewImports = $scopeConfig->getValue(
             'parc_urlkeys/storeviews/selection'
         );
 
-        if (!is_array($imports) && isset($imports)) {
+        if (!is_array($storeViewImports) && isset($storeViewImports)) {
 
-            $imports = json_decode($imports, true);
+            $storeViewImports = json_decode($storeViewImports, true);
         }
 
-        if (is_array($imports)) {
+        if (is_array($storeViewImports)) {
 
-            foreach ($imports as $import) {
+            foreach ($storeViewImports as $import) {
 
                 $this->storeViews[] = $import;
             }
         }
+
+        $cronSchedule = $scopeConfig->getValue(
+            'parc_urlkeys/cronjob/configure'
+        );
     }
 
     /**
@@ -45,6 +51,8 @@ class Import
      */
     public function run(): array
     {
-        return $this->storeViews ?? [];
+        return ['storeViewsSettings' => $this->storeViews ?? [],
+                'cronScheduleSetting' => $this->cronSchedule
+        ];
     }
 }
