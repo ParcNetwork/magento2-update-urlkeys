@@ -1,5 +1,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
   <system>
+    <tab id="parc" translate="label" sortOrder="1">
+      <label> PARC Network</label>
+    </tab>
     <section id="parc_urlkeys" translate="label" type="text" sortOrder="1400" showInDefault="1" showInWebsite="1" showInStore="1">
       <label>Update Url Keys</label>
       <tab>parc</tab>
