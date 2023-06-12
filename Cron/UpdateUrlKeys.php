@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Parc\CorrectUrlKeys\Cron;
+namespace Parc\UpdateUrlKeys\Cron;
 
 use Magento\Store\Model\StoreManagerInterface;
-use Parc\CorrectUrlKeys\Model\FindUrlKeys;
+use Parc\UpdateUrlKeys\Model\FindUrlKeys;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
-use Parc\CorrectUrlKeys\Model\Import;
-use Parc\CorrectUrlKeys\Model\CsvExporter;
+use Parc\UpdateUrlKeys\Model\Import;
+use Parc\UpdateUrlKeys\Model\CsvExporter;
 
 class UpdateUrlKeys
 {

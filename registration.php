@@ -5,4 +5,4 @@
  */
 use Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Parc_CorrectUrlKeys', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Parc_UpdateUrlKeys', __DIR__);

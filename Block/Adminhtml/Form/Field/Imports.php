@@ -1,5 +1,8 @@
 <?php
-namespace Parc\CorrectUrlKeys\Block\Adminhtml\Form\Field;
+
+declare(strict_types=1);
+
+namespace Parc\UpdateUrlKeys\Block\Adminhtml\Form\Field;
 
 use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
 use Magento\Framework\DataObject;

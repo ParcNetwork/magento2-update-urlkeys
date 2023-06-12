@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Parc\CorrectUrlKeys\Block\Adminhtml\Form\Field;
+namespace Parc\UpdateUrlKeys\Block\Adminhtml\Form\Field;
 
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\View\Element\Context;

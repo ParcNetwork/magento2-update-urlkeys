@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Parc\CorrectUrlKeys\Model;
+namespace Parc\UpdateUrlKeys\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 

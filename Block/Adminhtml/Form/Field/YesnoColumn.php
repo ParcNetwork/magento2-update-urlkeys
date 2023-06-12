@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Parc\CorrectUrlKeys\Block\Adminhtml\Form\Field;
+namespace Parc\UpdateUrlKeys\Block\Adminhtml\Form\Field;
 
 use Magento\Eav\Model\Config;
 use Magento\Framework\View\Element\Context;

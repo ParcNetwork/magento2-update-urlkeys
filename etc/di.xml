@@ -5,7 +5,7 @@
   <type name="Magento\Framework\Console\CommandListInterface">
     <arguments>
       <argument name="commands" xsi:type="array">
-        <item name="parc_correcturlkeys" xsi:type="object">Parc\CorrectUrlKeys\Console\CorrectUrlKeys</item>
+        <item name="parc_correcturlkeys" xsi:type="object">Parc\UpdateUrlKeys\Console\CorrectUrlKeys</item>
       </argument>
     </arguments>
   </type>

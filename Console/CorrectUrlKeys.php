@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Parc\CorrectUrlKeys\Console;
+namespace Parc\UpdateUrlKeys\Console;
 
 use Magento\Framework\App\Area;
 use Magento\Framework\App\State;
@@ -10,9 +10,9 @@ use Magento\Framework\Exception\FileSystemException;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Store\Model\StoreManagerInterface;
-use Parc\CorrectUrlKeys\Cron\UpdateUrlKeys;
-use Parc\CorrectUrlKeys\Model\FindUrlKeys;
-use Parc\CorrectUrlKeys\Model\CsvExporter;
+use Parc\UpdateUrlKeys\Cron\UpdateUrlKeys;
+use Parc\UpdateUrlKeys\Model\FindUrlKeys;
+use Parc\UpdateUrlKeys\Model\CsvExporter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
