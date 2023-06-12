@@ -53,6 +53,11 @@ A list of all possible parameters can be found via **-h / --help** or below:
 
 ![Screenshot 2023-06-12 at 12.22.00 PM.png](..%2F..%2F..%2F..%2F..%2F..%2FDesktop%2FScreenshot%202023-06-12%20at%2012.22.00%20PM.png)
 
+I would only recommend using the CLI **when**:
+- you don't want to wait until the cron would be executed the next time.
+- you want to create an overview via CSV, which changes are made, regarding the url keys
+- you want to update the url key for a single product only
+
 ## Support
 If you encounter any issues or have any questions, please create an issue on the GitHub repository.
 
