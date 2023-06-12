@@ -4,8 +4,8 @@ The Magento 2 Update URL Keys module allows you to update URL keys for products,
 
 ## Features
 
-- Update URL keys for products, categories, and CMS pages
-- Based on the current name or custom rules
+- Update URL keys for products
+- Based on the current products name
 - Supports bulk updating for multiple items at once
 - Easy to install and use
 
@@ -15,10 +15,11 @@ The Magento 2 Update URL Keys module allows you to update URL keys for products,
 
 ## Installation
 
-1. Run the following Composer command to install the module:
+Run the following Composer command to install the module:
 
-   ```shell
-   composer require parc/update-url-keys
+```shell
+composer require parc/update-url-keys
+```
 Enable the module by running the following commands:
 
 ```shell
