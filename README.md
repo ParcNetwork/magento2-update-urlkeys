@@ -14,7 +14,7 @@ Searches for products in different stores and corrects the url key if needed
 
 ## Installation
 1. Install via composer
-   ```composer require yolomir/magento2-update-url-keys```
+   ```composer require parcnetwork/magento2-update-urlkeys```
 
 ### Type 1: Zip file
 
@@ -50,5 +50,5 @@ Searches for products in different stores and corrects the url key if needed
 
 
 
-=======
+
 # magento2-update-urlkeys
