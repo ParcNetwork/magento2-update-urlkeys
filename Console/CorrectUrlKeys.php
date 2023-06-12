@@ -89,7 +89,7 @@ class CorrectUrlKeys extends Command
      */
     protected function configure(): void
     {
-        $this->setName('parc:correcturlkeys')
+        $this->setName('parc:updateurlkeys')
              ->setDescription('Generates csv-file containing
                                         products old to new url-key comparison')
              ->setDefinition($this->getOptionsList());
@@ -128,7 +128,7 @@ class CorrectUrlKeys extends Command
                     ]];
                 }
             }
-            return "Store View '$storeView' wurde nicht gefunden.";
+            return "Store View '$storeView' was not found.";
         } else {
             foreach ($storeManagerDataList as $key => $value) {
                 $storeDataArray[] = [

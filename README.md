@@ -35,13 +35,23 @@ php bin/magento cache:flush
 ```
 
 ## Usage
+
+**1. Backend**
+
 Log in to your Magento admin panel.
+Go to **Stores > Configuration > Parc Network > Update Url Keys**.
+Select the store views and the desired update method, 
+which can differ between multiple store views
+Configure your own cronjob interval and save the configuration
 
-Go to Stores > Configuration > Catalog > URL Rewrites.
 
-Configure the module settings according to your requirements.
+**2. CLI**
+    
+Inside your Magento2 root, hit **bin/magento parc:updateurlkeys**
 
-Save the configuration and the module will start updating the URL keys based on the configured rules.
+A list of all possible parameters can be found via **-h / --help** or below:
+
+![Screenshot 2023-06-12 at 12.22.00 PM.png](..%2F..%2F..%2F..%2F..%2F..%2FDesktop%2FScreenshot%202023-06-12%20at%2012.22.00%20PM.png)
 
 ## Support
 If you encounter any issues or have any questions, please create an issue on the GitHub repository.
