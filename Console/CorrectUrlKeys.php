@@ -110,30 +110,34 @@ class CorrectUrlKeys extends Command
     }
 
     /**
-     * @param string $storeView
+     * @param string|null $storeView
      *
      * @return array|string
      */
-    private function getStoreData(string $storeView): array|string
+    private function getStoreData(string $storeView = null): array|string
     {
         $storeDataArray = [];
-
         $storeManagerDataList = $this->_storeManager->getStores();
 
-        foreach ($storeManagerDataList as $key => $value) {
-
-            if (str_contains($value['code'], $storeView)) {
-
+        if ($storeView !== null) {
+            foreach ($storeManagerDataList as $key => $value) {
+                if (str_contains($value['code'], $storeView)) {
+                    return [
+                        'id' => $key,
+                        'name' => $value['code']
+                    ];
+                }
+            }
+            return "Store View '$storeView' wurde nicht gefunden.";
+        } else {
+            foreach ($storeManagerDataList as $key => $value) {
                 $storeDataArray[] = [
                     'id' => $key,
-                    'name' => $storeView
+                    'name' => $value['code']
                 ];
             }
-
             return $storeDataArray;
         }
-
-        return 'could not match store-view';
     }
 
     /**
@@ -185,7 +189,7 @@ class CorrectUrlKeys extends Command
 
         if ($updateAllStoreViews !== null) {
 
-            $storeViewId = $this->updateUrlKeys->getStoreData();
+            $storeViewId = $this->getStoreData();
         } else {
 
             $storeViewId = $this->getStoreData($storeView);

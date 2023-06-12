@@ -12,8 +12,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "magento/framework": "^2.3",
-        "integer-net/magento2-german-umlaut-urls": "^2.0"
+        "magento/framework": "^2.4.5"
     },
     "autoload": {
         "files": [

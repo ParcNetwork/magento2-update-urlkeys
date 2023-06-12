@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Parc\CorrectUrlKeys\Cron;
 
-use Magento\Framework\File\Csv;
 use Magento\Store\Model\StoreManagerInterface;
 use Parc\CorrectUrlKeys\Model\FindUrlKeys;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
@@ -118,7 +117,7 @@ class UpdateUrlKeys
 
             $result = $this->_findUrlKeys->getProductsFilteredByUmlauts($productIdsArray, 'yes');
 
-            if (count($result['couldNotSave'] > 1)) {
+            if (count($result['couldNotSave']) >= 2) { // count's minimum is 1 due to headers
 
                 $filename = $this->filenameCouldNotSave($setting['label']);
                 $this->csvExporter->exportData($result['couldNotSave'], $filename, $dir='/log');

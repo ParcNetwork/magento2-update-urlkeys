@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Parc\CorrectUrlKeys\Model;
 
 use Exception;
-use IntegerNet\GermanUmlautUrls\Filter\TranslitUrl;
+//use IntegerNet\GermanUmlautUrls\Filter\TranslitUrl;
+use Magento\Framework\Filter\TranslitUrl;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 use Magento\Framework\Exception\AlreadyExistsException;
