@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Parc\CorrectUrlKeys\Cron;
 
+use Magento\Framework\File\Csv;
 use Magento\Store\Model\StoreManagerInterface;
 use Parc\CorrectUrlKeys\Model\FindUrlKeys;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 use Parc\CorrectUrlKeys\Model\Import;
+use Parc\CorrectUrlKeys\Model\CsvExporter;
 
 class UpdateUrlKeys
 {
@@ -32,25 +34,33 @@ class UpdateUrlKeys
     protected Import $import;
 
     /**
+     * @var CsvExporter
+     */
+    protected CsvExporter $csvExporter;
+
+    /**
      * @param StoreManagerInterface $_storeManager
      * @param FindUrlKeys           $_findUrlKeys
      * @param CollectionFactory     $_productCollectionFactory
      * @param Import                $import
+     * @param CsvExporter           $csvExporter
      */
     public function __construct(
         StoreManagerInterface $_storeManager,
         FindUrlKeys $_findUrlKeys,
         CollectionFactory $_productCollectionFactory,
-        Import $import
+        Import $import,
+        CsvExporter $csvExporter
     ) {
         $this->_storeManager = $_storeManager;
         $this->_findUrlKeys = $_findUrlKeys;
         $this->_productCollectionFactory = $_productCollectionFactory;
         $this->import = $import;
+        $this->csvExporter = $csvExporter;
     }
 
     /**
-     * @param $storeId
+     * @param $setting
      *
      * @return array
      */
@@ -77,6 +87,17 @@ class UpdateUrlKeys
     }
 
     /**
+     * @param $storeView
+     * @return string
+     */
+    private function filenameCouldNotSave($storeView): string
+    {
+
+        $filename = 'couldnotsave_' . $storeView . '.csv';
+        return str_replace(' ', '', $filename);
+    }
+
+    /**
      * @return void
      */
     public function execute(): void
@@ -95,7 +116,13 @@ class UpdateUrlKeys
 
             $productIdsArray = $this->getProductCollection($setting);
 
-            $this->_findUrlKeys->getProductsFilteredByUmlauts($productIdsArray, 'yes');
+            $result = $this->_findUrlKeys->getProductsFilteredByUmlauts($productIdsArray, 'yes');
+
+            if (count($result['couldNotSave'] > 1)) {
+
+                $filename = $this->filenameCouldNotSave($setting['label']);
+                $this->csvExporter->exportData($result['couldNotSave'], $filename, $dir='/log');
+            }
         }
     }
 }

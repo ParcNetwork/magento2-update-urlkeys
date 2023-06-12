@@ -211,7 +211,7 @@ class CorrectUrlKeys extends Command
 
             if (count($couldNotSave) >= 2) { // count's minimum is 1 due to headers
                 $filename = $this->filenameCouldNotSave($item['name']);
-                $this->_csvExporter->exportData($couldNotSave, $filename);
+                $this->_csvExporter->exportData($couldNotSave, $filename, $dir='/log');
             }
 
             if ($generateCsv !== null) {

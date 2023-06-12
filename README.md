@@ -20,7 +20,7 @@ Searches for products in different stores and corrects the url key if needed
 
  - Unzip the zip file in `app/code/Parc`
  - Enable the module by running `php bin/magento module:enable Parc_CorrectUrlKeys`
- - Apply database updates by running `php bin/magento setup:upgrade`\*
+ - Apply database updates by running `php bin/magento setup:upgrade`
  - Flush the cache by running `php bin/magento cache:flush`
 
 ### Type 2: Composer
@@ -32,7 +32,7 @@ Searches for products in different stores and corrects the url key if needed
  - Add the composer repository to the configuration by running `composer config repositories.repo.magento.com composer https://repo.magento.com/`
  - Install the module composer by running `composer require parc/module-correcturlkeys`
  - enable the module by running `php bin/magento module:enable Parc_CorrectUrlKeys`
- - apply database updates by running `php bin/magento setup:upgrade`\*
+ - apply database updates by running `php bin/magento setup:upgrade`
  - Flush the cache by running `php bin/magento cache:flush`
 
 

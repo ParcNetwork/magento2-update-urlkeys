@@ -22,12 +22,12 @@ class Imports extends AbstractFieldArray
     protected function _prepareToRender(): void
     {
         $this->addColumn('storeview', [
-            'label' => __('Storeview'),
+            'label' => __('Select a store view'),
             'renderer' => $this->getStoreviewsRenderer(),
             'class' => 'required-entry'
         ]);
         $this->addColumn('enabled', [
-            'label' => __('Update products from today?'),
+            'label' => __('Do you want to update all products or only those from today?'),
             'renderer' => $this->getYesNoRenderer()
         ]);
 

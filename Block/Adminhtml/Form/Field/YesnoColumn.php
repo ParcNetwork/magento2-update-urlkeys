@@ -61,8 +61,8 @@ class YesnoColumn extends Select
     private function getSourceOptions(): array
     {
         return [
-            ['label' => 'Yes', 'value' => '1'],
-            ['label' => 'No', 'value' => '0'],
+            ['label' => 'Today', 'value' => '1'],
+            ['label' => 'All', 'value' => '0'],
         ];
     }
 }

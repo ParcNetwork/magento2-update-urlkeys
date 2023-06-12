@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Parc\CorrectUrlKeys\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
@@ -13,7 +15,7 @@ class Import
 
     protected array $storeViews;
 
-    protected $cronSchedule;
+    protected mixed $cronSchedule;
 
     /**
      * @param ScopeConfigInterface $scopeConfig
@@ -51,8 +53,8 @@ class Import
      */
     public function run(): array
     {
-        return ['storeViewsSettings' => $this->storeViews ?? [],
-                'cronScheduleSetting' => $this->cronSchedule
+        return ['storeViewsSettings'    => $this->storeViews ?? [],
+                'cronScheduleSetting'   => $this->cronSchedule
         ];
     }
 }
