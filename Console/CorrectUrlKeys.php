@@ -90,8 +90,7 @@ class CorrectUrlKeys extends Command
     protected function configure(): void
     {
         $this->setName('parc:updateurlkeys')
-             ->setDescription('Generates csv-file containing
-                                        products old to new url-key comparison')
+             ->setDescription('Updates products urlkeys')
              ->setDefinition($this->getOptionsList());
 
         parent::configure();
