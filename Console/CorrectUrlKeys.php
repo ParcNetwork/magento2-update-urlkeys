@@ -122,10 +122,10 @@ class CorrectUrlKeys extends Command
         if ($storeView !== null) {
             foreach ($storeManagerDataList as $key => $value) {
                 if (str_contains($value['code'], $storeView)) {
-                    return [
+                    return [[
                         'id' => $key,
                         'name' => $value['code']
-                    ];
+                    ]];
                 }
             }
             return "Store View '$storeView' wurde nicht gefunden.";

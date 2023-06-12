@@ -44,7 +44,7 @@ class CsvExporter
      * @return int
      * @throws FileSystemException
      */
-    public function exportData(array $data, string $fileName, string $dir='/export'): int
+    public function exportData(array $data, string $fileName, string $dir = '/export'): int
     {
         $varDir = $this->_directoryList->getPath(DirectoryList::VAR_DIR);
 

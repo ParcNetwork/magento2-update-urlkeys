@@ -79,7 +79,8 @@ class UpdateUrlKeys
         return $productCollection->addStoreFilter($storeId)->getAllIds();
     }
 
-    public function prepareCronSchedule($cronScheduleSetting) {
+    public function prepareCronSchedule($cronScheduleSetting)
+    {
         list($minutes, $hours) = explode(' ', $cronScheduleSetting);
         //$cronString = $minutes . ' ' . $hours . ' * * *';
         return $minutes . ' ' . $hours . ' * * *';

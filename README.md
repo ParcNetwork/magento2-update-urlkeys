@@ -1,54 +1,51 @@
-# Mage2 Module Parc CorrectUrlKeys
+# Magento 2 Update URL Keys
 
-    ``parc/module-correcturlkeys``
+The Magento 2 Update URL Keys module allows you to update URL keys for products, categories, and CMS pages in Magento 2. It provides an easy way to update the URL keys based on the current name or custom rules.
 
- - [Main Functionalities](#markdown-header-main-functionalities)
- - [Installation](#markdown-header-installation)
- - [Configuration](#markdown-header-configuration)
- - [Specifications](#markdown-header-specifications)
- - [Attributes](#markdown-header-attributes)
+## Features
 
+- Update URL keys for products, categories, and CMS pages
+- Based on the current name or custom rules
+- Supports bulk updating for multiple items at once
+- Easy to install and use
 
-## Main Functionalities
-Searches for products in different stores and corrects the url key if needed
+## Requirements
+
+- Magento 2.x
 
 ## Installation
-1. Install via composer
-   ```composer require parcnetwork/magento2-update-urlkeys```
 
-### Type 1: Zip file
+1. Run the following Composer command to install the module:
 
- - Unzip the zip file in `app/code/Parc`
- - Enable the module by running `php bin/magento module:enable Parc_CorrectUrlKeys`
- - Apply database updates by running `php bin/magento setup:upgrade`
- - Flush the cache by running `php bin/magento cache:flush`
+   ```shell
+   composer require parc/update-url-keys
+Enable the module by running the following commands:
 
-### Type 2: Composer
+```shell
+php bin/magento module:enable Parc_UpdateUrlKeys
 
- - Make the module available in a composer repository for example:
-    - private repository `repo.magento.com`
-    - public repository `packagist.org`
-    - public github repository as vcs
- - Add the composer repository to the configuration by running `composer config repositories.repo.magento.com composer https://repo.magento.com/`
- - Install the module composer by running `composer require parc/module-correcturlkeys`
- - enable the module by running `php bin/magento module:enable Parc_CorrectUrlKeys`
- - apply database updates by running `php bin/magento setup:upgrade`
- - Flush the cache by running `php bin/magento cache:flush`
+php bin/magento setup:upgrade
+```
+Flush the Magento cache by running the following command:
 
+```shell
+php bin/magento cache:flush
+```
 
-## Configuration
+## Usage
+Log in to your Magento admin panel.
 
+Go to Stores > Configuration > Catalog > URL Rewrites.
 
+Configure the module settings according to your requirements.
 
+Save the configuration and the module will start updating the URL keys based on the configured rules.
 
-## Specifications
+## Support
+If you encounter any issues or have any questions, please create an issue on the GitHub repository.
 
+## Contributing
+Contributions are welcome! If you would like to contribute to the project, please fork the repository and submit a pull request.
 
-
-
-## Attributes
-
-
-
-
-# magento2-update-urlkeys
+## License
+This module is licensed under the MIT License.

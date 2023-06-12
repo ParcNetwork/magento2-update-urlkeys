@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Parc\CorrectUrlKeys\Model;
 
-use Exception;
 //use IntegerNet\GermanUmlautUrls\Filter\TranslitUrl;
 use Magento\Framework\Filter\TranslitUrl;
 use Magento\Catalog\Api\ProductRepositoryInterface;
