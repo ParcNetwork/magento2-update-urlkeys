@@ -1,6 +1,16 @@
 # Magento 2 Update URL Keys
 
-The Magento 2 Update URL Keys module allows you to update URL keys for products, categories, and CMS pages in Magento 2. It provides an easy way to update the URL keys based on the current name or custom rules.
+The Magento 2 Update URL Keys module allows you to update URL keys for products in Magento 2. It provides an easy way to update the URL keys based on the current name.
+
+When the name of a product changes, the URL key associated with that product should be updated accordingly. Changes to the product name happen frequently, and it is important to keep the URL key in sync to ensure consistent and accurate URLs for the product.
+
+The URL key is a unique identifier used in the URL of a product page. It is generated based on the product name and is used to create a user-friendly and search engine-friendly URL. When the product name is modified, the URL key should be updated to reflect the new name.
+
+This process can be automated by implementing a custom functionality that listens for product name changes and automatically updates the URL key. Whenever the name of a product is modified, the system should trigger the update of the URL key to match the new name.
+
+By keeping the URL key up to date with the product name, you ensure that customers can access the product page using a meaningful and relevant URL, and search engines can properly index and rank the product in search results.
+
+Implementing this functionality can help maintain consistency and improve the overall user experience of your online store.
 
 ## Features
 
