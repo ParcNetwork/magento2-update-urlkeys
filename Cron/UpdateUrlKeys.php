@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Parc\UpdateUrlKeys\Cron;
 
+use Magento\Framework\Exception\FileSystemException;
 use Magento\Store\Model\StoreManagerInterface;
 use Parc\UpdateUrlKeys\Model\FindUrlKeys;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
@@ -38,22 +39,22 @@ class UpdateUrlKeys
     protected CsvExporter $csvExporter;
 
     /**
-     * @param StoreManagerInterface $_storeManager
-     * @param FindUrlKeys           $_findUrlKeys
-     * @param CollectionFactory     $_productCollectionFactory
+     * @param StoreManagerInterface $storeManager
+     * @param FindUrlKeys           $findUrlKeys
+     * @param CollectionFactory     $productCollectionFactory
      * @param Import                $import
      * @param CsvExporter           $csvExporter
      */
     public function __construct(
-        StoreManagerInterface $_storeManager,
-        FindUrlKeys $_findUrlKeys,
-        CollectionFactory $_productCollectionFactory,
+        StoreManagerInterface $storeManager,
+        FindUrlKeys $findUrlKeys,
+        CollectionFactory $productCollectionFactory,
         Import $import,
         CsvExporter $csvExporter
     ) {
-        $this->_storeManager = $_storeManager;
-        $this->_findUrlKeys = $_findUrlKeys;
-        $this->_productCollectionFactory = $_productCollectionFactory;
+        $this->_storeManager = $storeManager;
+        $this->_findUrlKeys = $findUrlKeys;
+        $this->_productCollectionFactory = $productCollectionFactory;
         $this->import = $import;
         $this->csvExporter = $csvExporter;
     }
@@ -79,13 +80,6 @@ class UpdateUrlKeys
         return $productCollection->addStoreFilter($storeId)->getAllIds();
     }
 
-    public function prepareCronSchedule($cronScheduleSetting)
-    {
-        list($minutes, $hours) = explode(' ', $cronScheduleSetting);
-        //$cronString = $minutes . ' ' . $hours . ' * * *';
-        return $minutes . ' ' . $hours . ' * * *';
-    }
-
     /**
      * @param $storeView
      * @return string
@@ -99,16 +93,13 @@ class UpdateUrlKeys
 
     /**
      * @return void
+     * @throws FileSystemException
      */
     public function execute(): void
     {
         $settings = $this->import->run();
 
         $storeViewSettings = $settings['storeViewsSettings'];
-
-        $cronSchedule = $settings['cronScheduleSetting'];
-
-        //$cronSchedule = $this->prepareCronSchedule($cronSchedule);
 
         foreach ($storeViewSettings as $setting) {
 
