@@ -10,7 +10,6 @@
             "email": "ltempleton@parc-network.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "magento/framework": "^2.4.5"
     },
