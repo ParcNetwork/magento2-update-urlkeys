@@ -11,6 +11,7 @@
                 <label>Select Storeviews</label>
                 <field id="selection" translate="label" sortOrder="5" showInDefault="1">
                     <label>Storeviews</label>
+                    <comment><![CDATA[Updating all products can lead to long runtimes]]></comment>
                     <frontend_model>Parc\UpdateUrlKeys\Block\Adminhtml\Form\Field\Imports</frontend_model>
                     <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
                 </field>
