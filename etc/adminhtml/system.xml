@@ -15,6 +15,11 @@
                     <frontend_model>Parc\UpdateUrlKeys\Block\Adminhtml\Form\Field\Imports</frontend_model>
                     <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
                 </field>
+                <field id="run_now" translate="label" sortOrder="30" showInDefault="1">
+                    <label>Run Now</label>
+                    <frontend_model>Parc\UpdateUrlKeys\Block\Adminhtml\System\Config\RunNow</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
             </group>
             <group id="cronjob" translate="label" type="text" sortOrder="20" showInDefault="1" canRestore="1">
                 <label>Configure Cronjob Interval</label>
