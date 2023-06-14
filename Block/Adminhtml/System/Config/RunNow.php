@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Parc\UpdateUrlKeys\Block\Adminhtml\System\Config;
 
 use Magento\Backend\Block\Template\Context;
