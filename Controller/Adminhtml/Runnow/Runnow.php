@@ -59,7 +59,7 @@ class Runnow implements HttpGetActionInterface
     /**
      * Execute view action
      *
-     * @return ResultInterface
+     * @return ResultInterface|HttpInterface|Http
      */
     public function execute(): ResultInterface|HttpInterface|Http
     {
@@ -76,9 +76,9 @@ class Runnow implements HttpGetActionInterface
     /**
      * Create json response
      *
-     * @return Http|HttpInterface
+     * @return ResultInterface|HttpInterface|Http
      */
-    public function jsonResponse($response = '')
+    public function jsonResponse($response = ''): ResultInterface|HttpInterface|Http
     {
         $this->http->getHeaders()->clearHeaders();
         $this->http->setHeader('Content-Type', 'application/json');
