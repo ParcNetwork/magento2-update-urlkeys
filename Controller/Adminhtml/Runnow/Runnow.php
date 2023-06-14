@@ -9,6 +9,7 @@ namespace Parc\UpdateUrlKeys\Controller\Adminhtml\Runnow;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\Response\Http;
+use Magento\Framework\App\Response\HttpInterface;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Serialize\Serializer\Json;
@@ -60,7 +61,7 @@ class Index implements HttpGetActionInterface
      *
      * @return ResultInterface
      */
-    public function execute()
+    public function execute(): ResultInterface|HttpInterface|Http
     {
         try {
             return $this->jsonResponse('your response');
@@ -75,7 +76,7 @@ class Index implements HttpGetActionInterface
     /**
      * Create json response
      *
-     * @return ResultInterface
+     * @return Http|HttpInterface
      */
     public function jsonResponse($response = '')
     {
