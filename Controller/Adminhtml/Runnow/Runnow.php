@@ -15,6 +15,7 @@ use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\View\Result\PageFactory;
 use Psr\Log\LoggerInterface;
+use Parc\UpdateUrlKeys\Cron\UpdateUrlKeys;
 
 class Runnow implements HttpGetActionInterface
 {
@@ -36,24 +37,29 @@ class Runnow implements HttpGetActionInterface
      */
     protected Http $http;
 
+    protected UpdateUrlKeys $updateUrlKeys;
+
     /**
      * Constructor
      *
-     * @param PageFactory $resultPageFactory
-     * @param Json $json
-     * @param LoggerInterface $logger
-     * @param Http $http
+     * @param PageFactory       $resultPageFactory
+     * @param Json              $json
+     * @param LoggerInterface   $logger
+     * @param Http              $http
+     * @param UpdateUrlKeys     $updateUrlKeys
      */
     public function __construct(
         PageFactory $resultPageFactory,
         Json $json,
         LoggerInterface $logger,
-        Http $http
+        Http $http,
+        UpdateUrlKeys $updateUrlKeys
     ) {
         $this->resultPageFactory = $resultPageFactory;
         $this->serializer = $json;
         $this->logger = $logger;
         $this->http = $http;
+        $this->updateUrlKeys = $updateUrlKeys;
     }
 
     /**
@@ -64,7 +70,8 @@ class Runnow implements HttpGetActionInterface
     public function execute(): ResultInterface|HttpInterface|Http
     {
         try {
-            return $this->jsonResponse('your response');
+            $this->updateUrlKeys->execute();
+            return $this->jsonResponse('Script has been executed');
         } catch (LocalizedException $e) {
             return $this->jsonResponse($e->getMessage());
         } catch (\Exception $e) {
@@ -76,9 +83,10 @@ class Runnow implements HttpGetActionInterface
     /**
      * Create json response
      *
+     * @param string $response
      * @return ResultInterface|HttpInterface|Http
      */
-    public function jsonResponse($response = ''): ResultInterface|HttpInterface|Http
+    public function jsonResponse(string $response = ''): ResultInterface|HttpInterface|Http
     {
         $this->http->getHeaders()->clearHeaders();
         $this->http->setHeader('Content-Type', 'application/json');

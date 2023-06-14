@@ -55,8 +55,8 @@ class RunNow extends Field
                         showLoader: true,
                         success: function (response) {
                             alert({
-                                title: "Script started",
-                                content: "The script has been started.",
+                                title: "Script has been executed",
+                                content: "All selected store views have been updated",
                                 actions: {
                                     always: function(){}
                                 }
