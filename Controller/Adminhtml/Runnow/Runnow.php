@@ -16,7 +16,7 @@ use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\View\Result\PageFactory;
 use Psr\Log\LoggerInterface;
 
-class Index implements HttpGetActionInterface
+class Runnow implements HttpGetActionInterface
 {
 
     /**
