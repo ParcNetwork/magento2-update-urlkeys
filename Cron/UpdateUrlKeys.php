@@ -98,8 +98,6 @@ class UpdateUrlKeys
     public function execute(): void
     {
         $settings = $this->import->run();
-        $test = [['test']];
-        $this->csvExporter->exportData($test, 'test');
 
         $storeViewSettings = $settings['storeViewsSettings'];
 
