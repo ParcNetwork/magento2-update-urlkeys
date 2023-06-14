@@ -21,19 +21,19 @@ class Index implements HttpGetActionInterface
     /**
      * @var PageFactory
      */
-    protected $resultPageFactory;
+    protected PageFactory $resultPageFactory;
     /**
      * @var Json
      */
-    protected $serializer;
+    protected Json $serializer;
     /**
      * @var LoggerInterface
      */
-    protected $logger;
+    protected LoggerInterface $logger;
     /**
      * @var Http
      */
-    protected $http;
+    protected Http $http;
 
     /**
      * Constructor
@@ -82,8 +82,7 @@ class Index implements HttpGetActionInterface
         $this->http->getHeaders()->clearHeaders();
         $this->http->setHeader('Content-Type', 'application/json');
         return $this->http->setBody(
-            $this->serializer->serialize($response)
-        );
+            $this->serializer->serialize($response));
     }
 }
 

@@ -43,7 +43,7 @@ class RunNow extends Field
         $html .= '<span>' . $label . '</span>';
         $html .= '</button>';
 
-        $url = $this->getUrl('parc/runNow');
+        $url = $this->getUrl('runnow/runnow');
 
         $html .= '<script>
         require(["jquery", "Magento_Ui/js/modal/alert"], function ($, alert) {
