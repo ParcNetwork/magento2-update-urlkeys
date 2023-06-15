@@ -10,6 +10,8 @@ use Parc\UpdateUrlKeys\Model\FindUrlKeys;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 use Parc\UpdateUrlKeys\Model\Import;
 use Parc\UpdateUrlKeys\Model\CsvExporter;
+use Magento\Catalog\Model\Product\Attribute\Source\Status;
+use Magento\Catalog\Model\Product\Visibility;
 
 class UpdateUrlKeys
 {
@@ -66,8 +68,10 @@ class UpdateUrlKeys
      */
     public function getProductCollection($setting): array
     {
-        $storeId = $setting['storeview'];
-        $updateToday = $setting['enabled'];
+        $storeId = $setting['storeView'];
+        $updateToday = $setting['lastModified'];
+        $excludeDisabledProducts = $setting['enabledDisabled'];
+        $excludeNotVisibleProducts = $setting['visibility'];
 
         $productCollection = $this->_productCollectionFactory->create();
 
@@ -75,6 +79,22 @@ class UpdateUrlKeys
 
             $today = date('Y-m-d');
             $productCollection->addFieldToFilter('updated_at', ['from' => $today]);
+        }
+
+        if ((int) $excludeDisabledProducts === 1) {
+
+            $productCollection->addFieldToFilter('status',
+                ['eq' => Status::STATUS_ENABLED]);
+        } else {
+
+            $productCollection->addFieldToFilter('status',
+                ['neq' => Status::STATUS_DISABLED]);
+        }
+
+        if ((int) $excludeNotVisibleProducts === 1) {
+
+            $productCollection->addFieldToFilter('visibility',
+                ['gt' => Visibility::VISIBILITY_NOT_VISIBLE]);
         }
 
         return $productCollection->addStoreFilter($storeId)->getAllIds();
