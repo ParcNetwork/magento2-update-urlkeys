@@ -23,7 +23,11 @@
             </group>
             <group id="cronjob" translate="label" type="text" sortOrder="20" showInDefault="1" canRestore="1">
                 <label>Configure Cronjob Interval</label>
-                <field id="configure" translate="label" sortOrder="10" showInDefault="1" canRestore="1" showInWebsite="1">
+                <field id="enabledisable" translate="label" sortOrder="1" showInDefault="1" type="select">
+                    <label>Enable or disable cron functionality</label>
+                    <source_model>Parc\UpdateUrlKeys\Model\Config\Source\EnableDisableCron</source_model>
+                </field>
+                <field id="configure" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1">
                     <label>Cronjob</label>
                     <comment><![CDATA[Enter the cron expression in the format * * * * *]]></comment>
                 </field>

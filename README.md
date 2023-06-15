@@ -51,9 +51,10 @@ php bin/magento cache:flush
 Log in to your Magento admin panel.
 Go to **Stores > Configuration > Parc Network > Update Url Keys**.
 Select the store views and the desired update method, 
-which can differ between multiple store views
+which can differ between multiple store views.
 Configure your own cronjob interval and save the configuration
 
+Note: The cronjob functionality is **disabled by default**.
 
 **2. CLI**
     

@@ -3,7 +3,7 @@
     <default>
         <parc_urlkeys>
             <cronjob>
-                <configure>Cron is disabled by default</configure>
+                <configure>* * * * *</configure>
             </cronjob>
         </parc_urlkeys>
     </default>
