@@ -8,7 +8,7 @@ use Magento\Eav\Model\Config;
 use Magento\Framework\View\Element\Context;
 use Magento\Framework\View\Element\Html\Select;
 
-class YesnoColumn extends Select
+class EnabledDisablebProductsColumn extends Select
 {
     /**
      * @var Config
@@ -62,8 +62,8 @@ class YesnoColumn extends Select
     private function getSourceOptions(): array
     {
         return [
-            ['label' => 'Today', 'value' => '1'],
-            ['label' => 'All', 'value' => '0'],
+            ['label' => 'Yes', 'value' => '1'],
+            ['label' => 'No', 'value' => '0'],
         ];
     }
 }

@@ -17,6 +17,10 @@ class Imports extends AbstractFieldArray
 
     private $yesnoRenderer;
 
+    private $enabledDisabledProductsRenderer;
+
+    private $visibleProductsRenderer;
+
     /**
      * Prepare rendering the new field by adding all the needed columns
      *
@@ -24,14 +28,22 @@ class Imports extends AbstractFieldArray
      */
     protected function _prepareToRender(): void
     {
-        $this->addColumn('storeview', [
-            'label' => __('Select a store view'),
+        $this->addColumn('storeView', [
+            'label' => __('StoreView'),
             'renderer' => $this->getStoreviewsRenderer(),
             'class' => 'required-entry'
         ]);
-        $this->addColumn('enabled', [
-            'label' => __('Do you want to update all products or only those from today?'),
+        $this->addColumn('lastModified', [
+            'label' => __('Update method'),
             'renderer' => $this->getYesNoRenderer()
+        ]);
+        $this->addColumn('enabledDisabled', [
+            'label' => __('Exclude disabled products?'),
+            'renderer' => $this->getEnabledDisabledProductsRenderer()
+        ]);
+        $this->addColumn('visibility', [
+            'label' => __('Exclude not visible products?'),
+            'renderer' => $this->getVisibleProductsRenderer()
         ]);
 
         $this->_addAfter = false;
@@ -91,5 +103,35 @@ class Imports extends AbstractFieldArray
             );
         }
         return $this->yesnoRenderer;
+    }
+
+    /**
+     * @throws LocalizedException
+     */
+    private function getEnabledDisabledProductsRenderer()
+    {
+        if (!$this->enabledDisabledProductsRenderer) {
+            $this->enabledDisabledProductsRenderer = $this->getLayout()->createBlock(
+                EnabledDisablebProductsColumn::class,
+                '',
+                ['data' => ['is_render_to_js_template' => true]]
+            );
+        }
+        return $this->enabledDisabledProductsRenderer;
+    }
+
+    /**
+     * @throws LocalizedException
+     */
+    private function getVisibleProductsRenderer()
+    {
+        if (!$this->visibleProductsRenderer) {
+            $this->visibleProductsRenderer = $this->getLayout()->createBlock(
+                VisibleProductsColumn::class,
+                '',
+                ['data' => ['is_render_to_js_template' => true]]
+            );
+        }
+        return $this->visibleProductsRenderer;
     }
 }
