@@ -1,10 +1,12 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Parc\UpdateUrlKeys\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\App\Config\Storage\WriterInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Framework\App\Config\ValueInterface;
 use Magento\Framework\Event\Observer;
 use Magento\Store\Model\ScopeInterface;
 
