@@ -15,7 +15,7 @@ class JobResults extends AbstractDb
     /**
      * @inheritDoc
      */
-    protected function _construct()
+    protected function _construct(): void
     {
         $this->_init('parc_updateurlkeys_jobresults', 'jobresults_id');
     }
