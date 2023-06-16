@@ -100,8 +100,10 @@ class FindUrlKeys
 
         }
 
-        return ['dataToCsv'    => $result['dataToCsv'],
-                'couldNotSave' => $couldNotSave];
+        return ['dataToCsv'     => $result['dataToCsv'],
+                'couldNotSave'  => $couldNotSave,
+                'updatedUrlKeys' => $updateUrlKeys
+        ];
     }
 
     /**

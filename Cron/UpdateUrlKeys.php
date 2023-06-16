@@ -85,10 +85,6 @@ class UpdateUrlKeys
 
             $productCollection->addFieldToFilter('status',
                 ['eq' => Status::STATUS_ENABLED]);
-        } else {
-
-            $productCollection->addFieldToFilter('status',
-                ['neq' => Status::STATUS_DISABLED]);
         }
 
         if ((int) $excludeNotVisibleProducts === 1) {
@@ -112,22 +108,29 @@ class UpdateUrlKeys
     }
 
     /**
-     * @return void
+     * @return array
      * @throws FileSystemException
      */
-    public function execute(): void
+    public function execute(): array
     {
+        $amountUpdatedPerStoreView = [];
+
         $settings = $this->import->run();
 
         $storeViewSettings = $settings['storeViewsSettings'];
 
         foreach ($storeViewSettings as $setting) {
 
-            $this->_storeManager->setCurrentStore($setting['storeview']);
+            $this->_storeManager->setCurrentStore($setting['storeView']);
 
             $productIdsArray = $this->getProductCollection($setting);
 
             $result = $this->_findUrlKeys->getProductsFilteredByUmlauts($productIdsArray, 'yes');
+
+            $amountUpdatedPerStoreView[] = [
+                'Storeview' => $setting['storeView'],
+                'Updated'   => count($result['updatedUrlKeys'])
+            ];
 
             if (count($result['couldNotSave']) >= 2) { // count's minimum is 1 due to headers
 
@@ -135,5 +138,7 @@ class UpdateUrlKeys
                 $this->csvExporter->exportData($result['couldNotSave'], $filename, $dir='/log');
             }
         }
+
+        return $amountUpdatedPerStoreView;
     }
 }

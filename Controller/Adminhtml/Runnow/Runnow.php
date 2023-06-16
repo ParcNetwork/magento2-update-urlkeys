@@ -70,8 +70,9 @@ class Runnow implements HttpGetActionInterface
     public function execute(): ResultInterface|HttpInterface|Http
     {
         try {
-            $this->updateUrlKeys->execute();
-            return $this->jsonResponse('Script has been executed');
+            return $this->jsonResponse(
+                $this->updateUrlKeys->execute()
+            );
         } catch (LocalizedException $e) {
             return $this->jsonResponse($e->getMessage());
         } catch (\Exception $e) {
@@ -83,10 +84,10 @@ class Runnow implements HttpGetActionInterface
     /**
      * Create json response
      *
-     * @param string $response
+     * @param array|string $response
      * @return ResultInterface|HttpInterface|Http
      */
-    public function jsonResponse(string $response = ''): ResultInterface|HttpInterface|Http
+    public function jsonResponse(array|string $response): ResultInterface|HttpInterface|Http
     {
         $this->http->getHeaders()->clearHeaders();
         $this->http->setHeader('Content-Type', 'application/json');
