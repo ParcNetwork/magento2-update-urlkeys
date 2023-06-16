@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">parc_updateurlkeys_jobresults_listing.parc_updateurlkeys_jobresults_listing_data_source</item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>parc_updateurlkeys_jobresults_columns</spinner>
+		<deps>
+			<dep>parc_updateurlkeys_jobresults_listing.parc_updateurlkeys_jobresults_listing_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="parc_updateurlkeys_jobresults_listing_data_source" component="Magento_Ui/js/grid/provider">
+		<settings>
+			<storageConfig>
+				<param name="indexField" xsi:type="string">jobresults_id</param>
+			</storageConfig>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<aclResource>Parc_UpdateUrlKeys::JobResults</aclResource>
+		<dataProvider name="parc_updateurlkeys_jobresults_listing_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>jobresults_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+	<columns name="parc_updateurlkeys_jobresults_columns">
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>jobresults_id</indexField>
+			</settings>
+		</selectionsColumn>
+		<column name="jobresults_id">
+			<settings>
+				<filter>text</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>
+			</settings>
+		</column>
+		<column name="show_job_results">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">show_job_results</label>
+			</settings>
+		</column>
+	</columns>
+</listing>
