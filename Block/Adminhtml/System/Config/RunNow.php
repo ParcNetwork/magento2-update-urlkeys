@@ -84,22 +84,27 @@ class RunNow extends Field
                         success: function (response) {
                             let htmlContent = "";
                             let mappingArray = ' . $mappingArray . ';
-                            for (let i = 0; i < response.length; i++) {
-                                let entry = response[i];
-                                let storeview = entry.Storeview;
-                                let updated = entry.Updated;
-
-                                let label = "";
-                                for (let j = 0; j<mappingArray.length; j++) {
-                                    if (mappingArray[j].value === storeview) {
-                                        label = mappingArray[j].label;
-                                        break;
+                            let alertTitle = "Script has been executed";
+                            if (response.length >= 1) {
+                                for (let i = 0; i < response.length; i++) {
+                                    let entry = response[i];
+                                    let storeview = entry.Storeview;
+                                    let updated = entry.Updated;
+                                    let label = "";
+                                    for (let j = 0; j<mappingArray.length; j++) {
+                                        if (mappingArray[j].value === storeview) {
+                                            label = mappingArray[j].label;
+                                            break;
+                                        }
                                     }
+                                    htmlContent += label + " - items updated: " + updated + "<br>";
                                 }
-                                htmlContent += label, Updated: " + updated + "<br>";
+                            } else {
+                                alertTitle = "Error"
+                                htmlContent = "Please select at least one Storeview and save the configuration.";
                             }
                             alert({
-                                title: "Script has been executed",
+                                title: alertTitle,
                                 content: htmlContent,
                                 actions: {
                                     always: function(){}
@@ -107,8 +112,9 @@ class RunNow extends Field
                             });
                         },
                         error: function () {
+                            let alertTitle = "Error"
                             alert({
-                                title: "Error",
+                                title: alertTitle,
                                 content: "An error occurred while starting the script.",
                                 actions: {
                                     always: function(){}
