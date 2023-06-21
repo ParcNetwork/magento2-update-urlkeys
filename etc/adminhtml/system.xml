@@ -32,13 +32,6 @@
                     <comment><![CDATA[Enter the cron expression in the format * * * * *]]></comment>
                 </field>
             </group>
-            <group id="job_results" translate="label" type="text" sortOrder="25" showInDefault="1" canRestore="1">
-                <label>Job results</label>
-                <field id="show_job_results" translate="label" sortOrder="1" showInDefault="1">
-                    <label>Results:</label>
-                    <source_model>Parc\UpdateUrlKeys\Model\Config\Source\EnableDisableCron</source_model>
-                </field>
-            </group>
         </section>
     </system>
 </config>

@@ -8,6 +8,7 @@ use Magento\Backend\Block\Template\Context;
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 use Parc\UpdateUrlKeys\Cron\UpdateUrlKeys;
+use Magento\Store\Model\StoreManagerInterface;
 
 class RunNow extends Field
 {
@@ -16,18 +17,40 @@ class RunNow extends Field
      */
     protected UpdateUrlKeys $updateUrlKeys;
 
+    protected StoreManagerInterface $storeManager;
+
     /**
      * @param Context $context
      * @param UpdateUrlKeys $updateUrlKeys
+     * @param StoreManagerInterface $storeManager
      * @param array $data
      */
     public function __construct(
         Context $context,
         UpdateUrlKeys $updateUrlKeys,
+        StoreManagerInterface $storeManager,
         array $data = []
     ) {
         $this->updateUrlKeys = $updateUrlKeys;
+        $this->storeManager = $storeManager;
         parent::__construct($context, $data);
+    }
+
+    private function getAllStoreViews(): array
+    {
+        $storeViews = [];
+
+        $storeViewsCollection = $this->storeManager->getStores();
+
+        foreach ($storeViewsCollection as $storeView) {
+
+            $storeViews[] = [
+                'value' => $storeView->getId(),
+                'label' => $storeView->getName()
+            ];
+        }
+
+        return $storeViews;
     }
 
     /**
@@ -45,7 +68,12 @@ class RunNow extends Field
 
         $url = $this->getUrl('updateurlkeys/runnow/runnow');
 
+        $mappingArray = json_encode(
+            $this->getAllStoreViews()
+        );
+
         $html .= '<script>
+        let mappingArray = " . json_encode($mappingArray) . ";
         require(["jquery", "Magento_Ui/js/modal/alert"], function ($, alert) {
             $(document).ready(function () {
                 $("#product_run_now_button").on("click", function () {
@@ -55,11 +83,20 @@ class RunNow extends Field
                         showLoader: true,
                         success: function (response) {
                             let htmlContent = "";
+                            let mappingArray = ' . $mappingArray . ';
                             for (let i = 0; i < response.length; i++) {
                                 let entry = response[i];
                                 let storeview = entry.Storeview;
                                 let updated = entry.Updated;
-                                htmlContent += "Storeview: " + storeview + ", Updated: " + updated + "<br>";
+
+                                let label = "";
+                                for (let j = 0; j<mappingArray.length; j++) {
+                                    if (mappingArray[j].value === storeview) {
+                                        label = mappingArray[j].label;
+                                        break;
+                                    }
+                                }
+                                htmlContent += label, Updated: " + updated + "<br>";
                             }
                             alert({
                                 title: "Script has been executed",

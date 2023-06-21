@@ -8,9 +8,6 @@ use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
 use Magento\Framework\DataObject;
 use Magento\Framework\Exception\LocalizedException;
 
-/**
- * Class Ranges
- */
 class Imports extends AbstractFieldArray
 {
     private $storeViewRenderer;
@@ -91,6 +88,7 @@ class Imports extends AbstractFieldArray
     }
 
     /**
+     * @return YesnoColumn
      * @throws LocalizedException
      */
     private function getYesNoRenderer()
@@ -106,6 +104,7 @@ class Imports extends AbstractFieldArray
     }
 
     /**
+     * @return EnabledDisablebProductsColumn
      * @throws LocalizedException
      */
     private function getEnabledDisabledProductsRenderer()
@@ -121,6 +120,7 @@ class Imports extends AbstractFieldArray
     }
 
     /**
+     * @return VisibleProductsColumn
      * @throws LocalizedException
      */
     private function getVisibleProductsRenderer()

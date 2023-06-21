@@ -78,7 +78,6 @@ class StoreviewsColumn extends Select
     {
         $storeViews = [];
 
-        // Get all store views
         $storeViewsCollection = $this->storeManager->getStores();
 
         foreach ($storeViewsCollection as $storeView) {
