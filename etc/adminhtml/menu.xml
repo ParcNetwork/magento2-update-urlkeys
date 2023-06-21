@@ -1,7 +1,0 @@
-<?xml version="1.0" ?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
-	<menu>
-		<add id="Parc::top_level" title="Parc" module="Parc_UpdateUrlKeys" sortOrder="9999" resource="Magento_Backend::content"/>
-		<add id="Parc_UpdateUrlKeys::parc_updateurlkeys_jobresults" title="JobResults" module="Parc_UpdateUrlKeys" sortOrder="9999" resource="Magento_Backend::content" parent="Parc::top_level" action="parc_updateurlkeys/jobresults/index"/>
-	</menu>
-</config>

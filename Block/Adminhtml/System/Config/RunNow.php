@@ -54,11 +54,11 @@ class RunNow extends Field
                         url: "' . $url . '",
                         showLoader: true,
                         success: function (response) {
-                            var htmlContent = "";
-                            for (var i = 0; i < response.length; i++) {
-                                var entry = response[i];
-                                var storeview = entry.Storeview;
-                                var updated = entry.Updated;
+                            let htmlContent = "";
+                            for (let i = 0; i < response.length; i++) {
+                                let entry = response[i];
+                                let storeview = entry.Storeview;
+                                let updated = entry.Updated;
                                 htmlContent += "Storeview: " + storeview + ", Updated: " + updated + "<br>";
                             }
                             alert({
