@@ -11,8 +11,9 @@
     ],
     "require": {
         "php": "~8.0|~8.1",
-        "magento/framework": "^103.0.0"
+        "magento/framework": "^103.0"
     },
+    "minimum-stability": "stable",
     "suggest": {
         "integer-net/magento2-german-umlaut-urls": "Magento2 module which takes care of german umlauts"
     },
@@ -23,5 +24,11 @@
         "psr-4": {
             "Parc\\UpdateUrlKeys\\": ""
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+    ]
 }
