@@ -11,7 +11,11 @@
         }
     ],
     "require": {
-        "magento/framework": "^2.4.5"
+        "php": "~8.0|~8.1",
+        "magento/framework": "^104.0.0"
+    },
+    "suggest": {
+        "integer-net/magento2-german-umlaut-urls": "Magento2 module which takes care of german umlauts"
     },
     "autoload": {
         "files": [
