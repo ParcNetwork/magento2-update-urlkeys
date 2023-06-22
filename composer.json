@@ -1,7 +1,6 @@
 {
     "name": "parc/update-urlkeys",
     "description": "Searches for products in different stores and corrects the url key if needed",
-    "version": "1.0.0",
     "type": "magento2-module",
     "license": "MIT",
     "authors": [
