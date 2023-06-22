@@ -23,7 +23,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "Parc\\UpdateUrlKeys\\": "src/"
+            "Parc\\UpdateUrlKeys\\": ""
         }
     },
     "repositories": [
