@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Parc\UpdateUrlKeys\Cron;
 
+use Exception;
 use Magento\Framework\Exception\FileSystemException;
 use Magento\Store\Model\StoreManagerInterface;
 use Parc\UpdateUrlKeys\Model\FindUrlKeys;
@@ -110,6 +111,7 @@ class UpdateUrlKeys
     /**
      * @param $storeViewSettings
      * @return array
+     * @throws Exception
      */
     private function removeDuplicateStoreViews($storeViewSettings): array
     {
@@ -122,6 +124,8 @@ class UpdateUrlKeys
             if (!in_array($storeView, $selectedStoreView)) {
                 $selectedStoreView[] = $storeView;
                 $uniqueSelections[] = $item;
+            } else {
+                throw new Exception("Duplicate storeView found: {$storeView}");
             }
         }
 
@@ -129,10 +133,10 @@ class UpdateUrlKeys
     }
 
     /**
-     * @return array
      * @throws FileSystemException
+     * @throws Exception
      */
-    public function execute(): array
+    public function execute()
     {
         $amountUpdatedPerStoreView = [];
 

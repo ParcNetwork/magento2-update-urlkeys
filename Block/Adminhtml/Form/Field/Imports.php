@@ -81,7 +81,10 @@ class Imports extends AbstractFieldArray
             $this->storeViewRenderer = $this->getLayout()->createBlock(
                 StoreviewsColumn::class,
                 '',
-                ['data' => ['is_render_to_js_template' => true]]
+                ['data' => [
+                    'is_render_to_js_template' => true,
+                    'extra_params' => 'style="width: 200px;"'
+                ]]
             );
         }
         return $this->storeViewRenderer;
@@ -97,7 +100,10 @@ class Imports extends AbstractFieldArray
             $this->yesnoRenderer = $this->getLayout()->createBlock(
                 YesnoColumn::class,
                 '',
-                ['data' => ['is_render_to_js_template' => true]]
+                ['data' => [
+                    'is_render_to_js_template' => true,
+                    'extra_params' => 'style="width: 100px;"'
+                ]]
             );
         }
         return $this->yesnoRenderer;

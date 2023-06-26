@@ -85,7 +85,7 @@ class RunNow extends Field
                             let htmlContent = "";
                             let mappingArray = ' . $mappingArray . ';
                             let alertTitle = "Script has been executed";
-                            if (response.length >= 1) {
+                            if (response.length >= 1 && response.Storeview !== undefined) {
                                 for (let i = 0; i < response.length; i++) {
                                     let entry = response[i];
                                     let storeview = entry.Storeview;
@@ -99,6 +99,9 @@ class RunNow extends Field
                                     }
                                     htmlContent += label + " - items updated: " + updated + "<br>";
                                 }
+                            } else if (response.includes("Duplicate storeView found")){
+                                alertTitle = "Error"
+                                htmlContent = response;
                             } else {
                                 alertTitle = "Error"
                                 htmlContent = "Please select at least one Storeview and save the configuration.";
