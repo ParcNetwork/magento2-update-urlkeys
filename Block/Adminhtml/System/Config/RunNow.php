@@ -105,20 +105,14 @@ class RunNow extends Field
                             }
                             alert({
                                 title: alertTitle,
-                                content: htmlContent,
-                                actions: {
-                                    always: function(){}
-                                }
+                                content: htmlContent
                             });
                         },
                         error: function () {
                             let alertTitle = "Error"
                             alert({
                                 title: alertTitle,
-                                content: "An error occurred while starting the script.",
-                                actions: {
-                                    always: function(){}
-                                }
+                                content: "An error occurred while starting the script."
                             });
                         }
                     });

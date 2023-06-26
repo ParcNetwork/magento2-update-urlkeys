@@ -75,7 +75,7 @@ class Imports extends AbstractFieldArray
      * @return StoreviewsColumn
      * @throws LocalizedException
      */
-    private function getStoreviewsRenderer()
+    private function getStoreviewsRenderer(): StoreviewsColumn
     {
         if (!$this->storeViewRenderer) {
             $this->storeViewRenderer = $this->getLayout()->createBlock(
@@ -91,7 +91,7 @@ class Imports extends AbstractFieldArray
      * @return YesnoColumn
      * @throws LocalizedException
      */
-    private function getYesNoRenderer()
+    private function getYesNoRenderer(): YesnoColumn
     {
         if (!$this->yesnoRenderer) {
             $this->yesnoRenderer = $this->getLayout()->createBlock(
@@ -107,7 +107,7 @@ class Imports extends AbstractFieldArray
      * @return EnabledDisablebProductsColumn
      * @throws LocalizedException
      */
-    private function getEnabledDisabledProductsRenderer()
+    private function getEnabledDisabledProductsRenderer(): EnabledDisablebProductsColumn
     {
         if (!$this->enabledDisabledProductsRenderer) {
             $this->enabledDisabledProductsRenderer = $this->getLayout()->createBlock(
@@ -123,7 +123,7 @@ class Imports extends AbstractFieldArray
      * @return VisibleProductsColumn
      * @throws LocalizedException
      */
-    private function getVisibleProductsRenderer()
+    private function getVisibleProductsRenderer(): VisibleProductsColumn
     {
         if (!$this->visibleProductsRenderer) {
             $this->visibleProductsRenderer = $this->getLayout()->createBlock(

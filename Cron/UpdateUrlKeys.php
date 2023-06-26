@@ -108,6 +108,27 @@ class UpdateUrlKeys
     }
 
     /**
+     * @param $storeViewSettings
+     * @return array
+     */
+    private function removeDuplicateStoreViews($storeViewSettings): array
+    {
+        $selectedStoreView = [];
+        $uniqueSelections = [];
+
+        foreach ($storeViewSettings as $item) {
+            $storeView = $item['storeView'];
+
+            if (!in_array($storeView, $selectedStoreView)) {
+                $selectedStoreView[] = $storeView;
+                $uniqueSelections[] = $item;
+            }
+        }
+
+        return $uniqueSelections;
+    }
+
+    /**
      * @return array
      * @throws FileSystemException
      */
@@ -117,7 +138,7 @@ class UpdateUrlKeys
 
         $settings = $this->import->run();
 
-        $storeViewSettings = $settings['storeViewsSettings'];
+        $storeViewSettings = $this->removeDuplicateStoreViews($settings['storeViewsSettings']);
 
         foreach ($storeViewSettings as $setting) {
 
